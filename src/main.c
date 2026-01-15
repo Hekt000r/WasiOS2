@@ -13,7 +13,7 @@ int main()
     {
         printf("wasm_os:%s> ", current_dir->name);
         fflush(stdout);
-        
+
         if (!fgets(input, 100, stdin))
             break;
         input[strcspn(input, "\r\n")] = 0;
@@ -50,6 +50,12 @@ int main()
         else if (strcmp(cmd, "help") == 0)
         {
             printf("Commands: ls, mkdir, exit\n");
+        } else if (strcmp(cmd, "cd") == 0) {
+            if (arg) {
+                vfs_cd(arg);
+            } else {
+                vfs_cd("/");
+            }
         }
         else
         {
