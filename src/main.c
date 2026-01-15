@@ -11,7 +11,9 @@ int main()
 
     while (1)
     {
-        printf("wasm_os:%s$ ", current_dir->name);
+        printf("wasm_os:%s> ", current_dir->name);
+        fflush(stdout);
+        
         if (!fgets(input, 100, stdin))
             break;
         input[strcspn(input, "\r\n")] = 0;
